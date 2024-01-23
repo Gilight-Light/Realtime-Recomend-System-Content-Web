@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Blog</title>
+</head>
+<body>
+    <div class="blog-container">
+        {% for post in posts %}
+            <div class="post">
+                <form class="content"  onclick="handleClickType('{{ post.content }}', '{{ post.title }}', 'View'); return false;"> 
+                    <p name = 'content'>{{ post.content }}</p>
+                </form>
+                <form class="button-form" onsubmit="handleClickType('{{ post.content }}', '{{ post.title }}', 'Like'); return false;"> 
+                    <button class="like-btn">Like</button>
+                </form>
+                <form class="button-form" onsubmit="handleClickType('{{ post.content }}', '{{ post.title }}', 'Comment'); return false;" > 
+                    <button class="comment-btn">Comment</button>
+                </form>
+                <form class="button-form" onsubmit="handleClickType('{{ post.content }}', '{{ post.title }}', 'BookMark'); return false;" > 
+                    <button class="bookmark-btn">BookMark</button>
+                </form>
+                <form class="button-form" onsubmit="handleClickType('{{ post.content }}', '{{ post.title }}', 'Follow'); return false;"> 
+                    <button class="follow-btn">Follow</button>
+                </form>
+                <div class="course">IE211 - Công nghệ dữ liệu lớn</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Thêm mã JavaScript để gọi hàm và gửi dữ liệu đến server -->
+    <script>
+        function handleClick(content, id) {
+            // Sử dụng AJAX để gửi dữ liệu về server
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/actions", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Gửi dữ liệu dưới dạng JSON
+            xhr.send(JSON.stringify({ content: content , id : id}));
+        }
+
+        function handleClickType(content, id, type) {
+            // Sử dụng AJAX để gửi dữ liệu về server
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/actionstype", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Gửi dữ liệu dưới dạng JSON
+            xhr.send(JSON.stringify({ content: content , id : id , type : type}));
+        }
+    </script>
+    
+</body>
+</html>

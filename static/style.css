@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.blog-container {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 40px;  
+}
+
+.button-group {
+    display: flex; /* Hiển thị các nút trong cùng một hàng ngang */
+    margin-top: 20px; /* Khoảng cách giữa nút và nội dung */
+}
+
+/* Các nút like, comment, bookmark và follow */
+.like-btn,
+.comment-btn,
+.bookmark-btn,
+.follow-btn {
+    background-color: #1da1f2;
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+    margin-right: 10px; /* Khoảng cách giữa các nút */
+}
+
+/* Hover effect */
+.like-btn:hover,
+.comment-btn:hover,
+.bookmark-btn:hover,
+.follow-btn:hover {
+    background-color: hsl(216, 20%, 95%);
+    color: #000;
+}
+
+.content {
+    transition: color 0.3s ease;
+    font-size: 30px; 
+}
+
+.content:hover {
+    color: #1da1f2;
+}
+
+.button-form {
+    display: inline-block;
+}
+
+.course {
+    background-color: #1da1f2;
+    color: #fff; 
+    font-size: 25px; 
+    padding: 10px 15px; 
+    font-size: 14px;
+    
+    /* Căn phải */
+    position: fixed;
+    right: 20px; 
+    top: 20px; 
+    z-index: 999;
+  }
+  
+  .course:hover {
+    background-color: hsl(216, 20%, 95%);
+    color: #000;
+  }
+
+  .blog-container {
+    max-height: calc(100vh - 50px);
+    overflow-y: auto; 
+  }
